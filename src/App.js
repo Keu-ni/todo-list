@@ -1,6 +1,6 @@
 import React from 'react';
 import { GlobalStyle } from './style';
-import { TodoTemplate, Header } from './components';
+import { TodoTemplate, Header, TodoList } from './components';
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <GlobalStyle />
       <TodoTemplate>
         <Header />
+        <TodoList />
       </TodoTemplate>
     </>
   );
