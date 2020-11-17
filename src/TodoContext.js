@@ -29,7 +29,7 @@ const initialTodoMocks = [
             return state.concat(action.todo);
         case 'TOGGLE':
             return state.map(todo => 
-            todo.id === action.id ? { ...todo, don: !todo.done} : todo);
+            todo.id === action.id ? { ...todo, done: !todo.done} : todo);
         case 'REMOVE':
             return state.filter(todo => todo.id !== action.id);
         default:
