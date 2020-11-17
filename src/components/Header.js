@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useTodoState } from '../TodoContext';
 
 
 const HeaderWrap = styled.div`
@@ -27,11 +28,23 @@ const HeaderWrap = styled.div`
 `;
 
 function Header() {
+    const todoMocks = useTodoState();
+    const undoneTasks = todoMocks.filter(todo => !todo.done);
+
+    const today = new Date();
+    const dayString = today.toLocaleDateString('ko-KR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
+    const dayName = today.toLocaleDateString('ko-KR', {weekday: 'long'});
+
     return (
         <HeaderWrap>
-            <h1>2020.11.17</h1>
-            <div className="day">화요일</div>
-            <p>할 일 n개 남음</p>
+            <h1>{dayString}</h1>
+            <div className="day">{dayName}</div>
+            <p>할 일 {undoneTasks.length}개 남음</p>
         </HeaderWrap>
     );
 }
